@@ -1,0 +1,41 @@
+{
+  "name": "top_reddit",
+  "version": "1.0.0",
+  "description": "Application to see top reddit news",
+  "main": "index.js",
+  "repository": "https://github.com/highercomve/top_reddit",
+  "author": "Sergio Marin",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "serve": "parcel src/index.html",
+    "dev": "parcel watch src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
+    "babel-jest": "^24.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^5.12.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.0.0",
+    "jest-environment-enzyme": "^7.0.1",
+    "parcel-bundler": "^1.11.0",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
+    "react-test-renderer": "^16.7.0",
+    "styled-components": "^4.1.3"
+  }
+}
