@@ -1,30 +1,71 @@
-import React, { createContext, useReducer } from 'react'
+import React, { useContext, createContext, useReducer, useEffect } from 'react'
+import { reducerFactory } from './reducer-factory'
+/**
+ * @typedef {Object} state
+ * @property {Array} news - array of news
+ * @property {object} newsConfiguration - object with map of news and configuration
+ * @property {number} limit
+ * @property {string} after
+ * @property {string} before
+*/
 
-let News = createContext()
+/**
+ * @typedef {Object} action
+ * @property {string} type - string with the type of action
+ * @property {any} payload - value for the action
+*/
 
-let initialState = {
+/**
+ * @typedef {Function} dispatch
+ * @returns void
+ */
+
+/**
+  * @typedef {Object} store
+  * @property {state} state
+  * @property {React.Dispatch<action>} dispatch
+*/
+
+/**
+ * @type {state}
+ */
+const initialState = {
   news: {},
+  limit: 25,
+  after: undefined,
+  before: undefined,
   newsConfiguration: {}
 }
+const LOCAL_NAME = 'newsStore'
+const storedState = window.localStorage.getItem(LOCAL_NAME) || {}
 
-let reducer = (state, action) => {
-  switch (action.type) {
-    case 'reset':
-      return initialState
-    default:
-      return initialState
-  }
-}
+/**
+ * Reducer function
+ * @param {state} state
+ * @param {action} action
+ * @returns {state} state
+ */
+const reducer = reducerFactory(Object.assign(initialState, storedState))
+
+const News = createContext({ state: initialState, dispatch: () => {} })
 
 function NewsProvider (props) {
-  let [state, dispatch] = useReducer(reducer, initialState)
-  let value = { state, dispatch }
+  const [state, dispatch] = useReducer(reducer, initialState)
+  const value = { state, dispatch }
+
+  useEffect(() => {
+    window.localStorage.setItem(LOCAL_NAME, state)
+  })
 
   return (
     <News.Provider value={value}>{props.children}</News.Provider>
   )
 }
 
-let NewsConsumer = News.Consumer
+function useNews () {
+  return useContext(News)
+}
 
-export { News, NewsProvider, NewsConsumer }
+const NewsConsumer = News.Consumer
+
+export { reducer, useNews, News, NewsProvider, NewsConsumer }

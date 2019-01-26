@@ -8,8 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "serve": "parcel src/index.html",
-    "dev": "parcel watch src/index.html",
+    "dev": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "test": "jest"
   },
