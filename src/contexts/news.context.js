@@ -30,6 +30,7 @@ import { reducerFactory } from './reducer-factory'
  * @type {state}
  */
 const initialState = {
+  loading: true,
   news: {},
   limit: 25,
   after: undefined,

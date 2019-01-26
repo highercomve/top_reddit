@@ -42,5 +42,8 @@
     "react-dom": "^16.8.0-alpha.1",
     "react-test-renderer": "^16.7.0",
     "styled-components": "^4.1.3"
+  },
+  "dependencies": {
+    "inspector": "^0.5.0"
   }
 }
