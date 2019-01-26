@@ -2,5 +2,9 @@
   "extends": ["standard", "standard-react"],
   "rules": {
     "react/prop-types": [2, { "ignore": ["children"] }]
+  },
+  "plugins": ["jest"],
+  "env": {
+    "jest/globals": true
   }
 }
