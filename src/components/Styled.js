@@ -7,25 +7,24 @@ const sizes = {
 }
 
 export const Container = styled.section`
-  max-width: 1200px;
   display: flex;
 `
 
 export const Row = styled.section`
   flex: 0 1 auto;
-  padding: 0 2em;
+  padding: ${props => props.padding ? `${props.padding}em` : '0'};
   &.desktop {
-    @media (max-width: ${sizes['desktop'] / 16}em) {
+    @media (min-width: ${sizes['desktop'] / 16}em) {
       flex: ${props => props.size ? `0 0 ${(100 / 12) * props.size}%` : '0 1 auto'};
     }
   }
   &.phone {
-    @media (max-width: ${sizes['phone'] / 16}em) {
+    @media (min-width: ${sizes['phone'] / 16}em) {
       flex: ${props => props.size ? `0 0 ${(100 / 12) * props.size}%` : '0 1 auto'};
     }
   }
   &.tablet {
-    @media (max-width: ${sizes['tablet'] / 16}em) {
+    @media (min-width: ${sizes['tablet'] / 16}em) {
       flex: ${props => props.size ? `0 0 ${(100 / 12) * props.size}%` : '0 1 auto'};
     }
   }

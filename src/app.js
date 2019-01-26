@@ -34,7 +34,7 @@ export default function App () {
 
   return (
     <Container>
-      <Row col='4'>
+      <Row size='4' className='tablet'>
         <NewsLists />
       </Row>
     </Container>
