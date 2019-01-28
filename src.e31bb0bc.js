@@ -28464,7 +28464,7 @@ function _templateObject9() {
 }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  flex: 1 0 auto;\n  text-align: right;\n"]);
+  var data = _taggedTemplateLiteral(["\n  flex: 1 0 auto;\n  text-align: left;\n  font-size: 0.9em;\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -28474,7 +28474,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  flex: 1 0 auto;\n  text-align: left;\n"]);
+  var data = _taggedTemplateLiteral(["\n  flex: 1 0 auto;\n  text-align: left;\n  font-size: 0.9em;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -28484,7 +28484,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  flex: 1 0 auto;\n  & .author-label {\n    text-transform: uppercase;\n    font-weight: bold;\n    font-size: 0.8em;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  flex: 1 0 auto;\n  font-size: 0.9em;\n  & .author-label {\n    text-transform: uppercase;\n    font-weight: bold;\n    font-size: 0.8em;\n  }\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -29811,9 +29811,11 @@ function NewsItem(props) {
     padding: "0 0 0 1em",
     size: "9",
     className: "phone"
-  }, _react.default.createElement(_Styled.Title, null, props.data.title), _react.default.createElement(_Styled.SAuthor, {
+  }, _react.default.createElement(_Styled.Title, null, props.data.title), _react.default.createElement(_Styled.Row, {
+    direction: "column"
+  }, _react.default.createElement(_Styled.SAuthor, {
     name: props.data.author
-  }), _react.default.createElement(_Styled.Row, null, _react.default.createElement(_Styled.DayFromNow, {
+  }), _react.default.createElement(_Styled.DayFromNow, {
     date: props.data.created
   }), _react.default.createElement(_Styled.CommentsNumber, {
     count: props.data.num_comments
@@ -31158,6 +31160,8 @@ function ArticleDetail() {
     href: "https://www.reddit.com".concat(article.data.permalink),
     target: "_blank"
   }, article.data.title)), _react.default.createElement(_Styled.Row, {
+    direction: "row",
+    wrap: "wrap",
     justify: "space-between"
   }, _react.default.createElement(_Styled.SAuthor, {
     name: article.data.author
@@ -32920,7 +32924,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64510" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64981" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
