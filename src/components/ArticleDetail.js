@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNews } from '../contexts/news.context'
 import { Row, Center, SAuthor, DayFromNow, CommentsNumber } from './Styled'
 import DOMPurify from 'dompurify'
@@ -42,6 +42,15 @@ export default function ArticleDetail () {
   const { state, dispatch } = useNews()
   const article = state.news[state.selected]
   const close = () => dispatch({ type: 'close' })
+
+  useEffect(() => {
+    if (state.news[state.selected]) {
+      document.title = state.news[state.selected].data.title
+    } else {
+      document.title = 'Top Reddit Reader'
+    }
+  })
+
   if (!article) {
     return (
       <Center>
