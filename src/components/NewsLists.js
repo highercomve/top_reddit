@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { useNews } from '../contexts/news.context'
 import NewsItem from './NewsItem'
@@ -11,6 +11,7 @@ const ScrolledContent = styled.section`
 
 export default function NewsLists () {
   const { state, dispatch } = useNews()
+  const listElement = useRef(null);
   const open = (id) => (e) => {
     e.preventDefault()
     dispatch({ type: 'open', payload: id })
@@ -21,8 +22,14 @@ export default function NewsLists () {
     dispatch({ type: 'dismiss', payload: id })
   }
   const news = Object.keys(state.news).filter((key) => state.news[key])
+
+  useEffect(() => {
+    // Move scroll to the top
+    listElement.current.scrollTo(0, 0)
+    listElement.current.scrollTop = 0
+  })
   return (
-    <ScrolledContent>
+    <ScrolledContent ref={listElement}>
       <ReactCSSTransitionGroup
         transitionName='remove'
         transitionEnterTimeout={500}
