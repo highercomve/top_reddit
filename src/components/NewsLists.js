@@ -27,7 +27,7 @@ export default function NewsLists () {
     // Move scroll to the top
     listElement.current.scrollTo(0, 0)
     listElement.current.scrollTop = 0
-  })
+  }, [state.loading])
   return (
     <ScrolledContent ref={listElement}>
       <ReactCSSTransitionGroup

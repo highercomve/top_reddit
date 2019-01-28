@@ -15,7 +15,6 @@ export default function Pagination () {
     dispatch({ type: 'loading', payload: 'app' })
     getTopNews(state.limit, undefined, state.before)
       .then(news => {
-        console.log(news)
         dispatch({ type: 'update', payload: news.data })
         dispatch({ type: 'loading', payload: null })
       })
