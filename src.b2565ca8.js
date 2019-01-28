@@ -151,7 +151,7 @@ module.exports=require("./lib/axios");
 },{"./lib/axios":"nUiQ"}],"zwx+":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getTopNews=r;var e=t(require("axios"));function t(e){return e&&e.__esModule?e:{default:e}}var o="https://www.reddit.com/";function r(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:25,r=arguments.length>1?arguments[1]:void 0,n=arguments.length>2?arguments[2]:void 0,u=arguments.length>3?arguments[3]:void 0;return(0,e.default)({method:"GET",url:"".concat(o,"/top.json"),params:{limit:t,after:r,before:n,count:u}}).then(function(e){return e.data})}
 },{"axios":"dZBD"}],"JU/+":[function(require,module,exports) {
-module.exports="/loading.53eed395.gif";
+module.exports="https://highercomve.github.io/top_reddit/loading.53eed395.gif";
 },{}],"zWDD":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=u;var e=r(require("react")),t=r(require("../assets/loading.gif"));function r(e){return e&&e.__esModule?e:{default:e}}function u(){return e.default.createElement("div",null,e.default.createElement("img",{src:t.default}))}
 },{"react":"1n8/","../assets/loading.gif":"JU/+"}],"6cAN":[function(require,module,exports) {
@@ -163,4 +163,4 @@ module.exports="/loading.53eed395.gif";
 },{"react":"1n8/","./contexts/news.context":"OIny","./components/Styled":"R0fF","./components/NewsLists":"IKSr","./components/ArticleDetail":"NYAB","./services/reddit.service":"zwx+","./components/Loading":"zWDD","./components/Actions":"6cAN","./components/Pagination":"haAe","styled-components":"tFSs"}],"Focm":[function(require,module,exports) {
 "use strict";var e=d(require("react")),t=d(require("react-dom")),r=d(require("./app.js")),u=require("./contexts/news.context");function d(e){return e&&e.__esModule?e:{default:e}}t.default.render(e.default.createElement(u.NewsProvider,null,e.default.createElement(r.default,null)),document.getElementById("top-reddit"));
 },{"react":"1n8/","react-dom":"NKHc","./app.js":"A2T1","./contexts/news.context":"OIny"}]},{},["Focm"], null)
-//# sourceMappingURL=/src.d08bda40.map
+//# sourceMappingURL=https://highercomve.github.io/top_reddit/src.d08bda40.map
