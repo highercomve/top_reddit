@@ -120,7 +120,7 @@ export function DayFromNow (props) {
 
 export function CommentsNumber (props) {
   return (
-    <CommentsN>comments {props.count}</CommentsN>
+    <CommentsN>{props.count} comments</CommentsN>
   )
 }
 
