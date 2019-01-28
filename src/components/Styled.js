@@ -70,6 +70,7 @@ export const Title = styled.h1`
 
 export const SAuthor = styled(Author)`
   flex: 1 0 auto;
+  font-size: 0.9em;
   & .author-label {
     text-transform: uppercase;
     font-weight: bold;
@@ -80,11 +81,13 @@ export const SAuthor = styled(Author)`
 export const FromNow = styled.span`
   flex: 1 0 auto;
   text-align: left;
+  font-size: 0.9em;
 `
 
 export const CommentsN = styled.span`
   flex: 1 0 auto;
-  text-align: right;
+  text-align: left;
+  font-size: 0.9em;
 `
 
 export const Thumbnail = styled.div`

@@ -11,8 +11,8 @@ export default function NewsItem (props) {
       </Thumbnail>
       <Row direction='column' padding='0 0 0 1em' size='9' className='phone'>
         <Title>{props.data.title}</Title>
-        <SAuthor name={props.data.author} />
-        <Row>
+        <Row direction='column'>
+          <SAuthor name={props.data.author} />
           <DayFromNow date={props.data.created} />
           <CommentsNumber count={props.data.num_comments} />
         </Row>

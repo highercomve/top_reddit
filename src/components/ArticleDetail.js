@@ -73,7 +73,7 @@ export default function ArticleDetail () {
       <Title>
         <a href={`https://www.reddit.com${article.data.permalink}`} target='_blank'>{article.data.title}</a>
       </Title>
-      <Row justify='space-between'>
+      <Row direction='row' wrap='wrap' justify='space-between'>
         <SAuthor name={article.data.author} />
         <DayFromNow date={article.data.created} />
         <CommentsNumber count={article.data.num_comments} />
