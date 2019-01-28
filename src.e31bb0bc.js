@@ -28636,7 +28636,7 @@ function DayFromNow(props) {
 }
 
 function CommentsNumber(props) {
-  return _react.default.createElement(CommentsN, null, "comments ", props.count);
+  return _react.default.createElement(CommentsN, null, props.count, " comments");
 }
 
 function Author(props) {
@@ -29901,7 +29901,7 @@ function NewsLists() {
     // Move scroll to the top
     listElement.current.scrollTo(0, 0);
     listElement.current.scrollTop = 0;
-  });
+  }, [state.loading]);
   return _react.default.createElement(ScrolledContent, {
     ref: listElement
   }, _react.default.createElement(_reactAddonsCssTransitionGroup.default, {
@@ -32769,7 +32769,6 @@ function Pagination() {
       payload: 'app'
     });
     (0, _reddit.getTopNews)(state.limit, undefined, state.before).then(function (news) {
-      console.log(news);
       dispatch({
         type: 'update',
         payload: news.data
@@ -32935,7 +32934,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49382" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50750" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
