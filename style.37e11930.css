@@ -1,0 +1,1 @@
+body,html{padding:0;margin:0}.remove-enter{opacity:.01}.remove-enter.remove-enter-active{opacity:1;transition:opacity .5s ease-in}.remove-leave{opacity:1}.remove-leave.remove-leave-active{opacity:.01;transform:translateX(-100%);transition:all .3s ease-in}
