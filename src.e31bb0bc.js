@@ -31046,7 +31046,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = ArticleDetail;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _news = require("../contexts/news.context");
 
@@ -31057,6 +31057,8 @@ var _dompurify = _interopRequireDefault(require("dompurify"));
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _templateObject3() {
   var data = _taggedTemplateLiteral(["\n  overflow-y: scroll;\n  max-height: 100vh;\n"]);
@@ -31132,6 +31134,14 @@ function ArticleDetail() {
       type: 'close'
     });
   };
+
+  (0, _react.useEffect)(function () {
+    if (state.news[state.selected]) {
+      document.title = state.news[state.selected].data.title;
+    } else {
+      document.title = 'Top Reddit Reader';
+    }
+  });
 
   if (!article) {
     return _react.default.createElement(_Styled.Center, null, _react.default.createElement("h1", null, "Select an article"));
@@ -32910,7 +32920,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55847" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64510" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
