@@ -39,7 +39,10 @@ const initialState = {
   newsConfiguration: {}
 }
 const LOCAL_NAME = 'newsStore'
-const storedState = window.localStorage.getItem(LOCAL_NAME) || {}
+let storedState = {}
+try {
+  storedState = JSON.parse(window.localStorage.getItem(LOCAL_NAME) || `{}`)
+} catch (e) {}
 
 /**
  * Reducer function
@@ -51,13 +54,20 @@ const reducer = reducerFactory(Object.assign(initialState, storedState))
 
 const News = createContext({ state: initialState, dispatch: () => {} })
 
-function NewsProvider (props) {
-  const [state, dispatch] = useReducer(reducer, initialState)
-  const value = { state, dispatch }
+const saveToStore = (next) => (action) => {
+  const state = next(action)
+  try {
+    window.localStorage.setItem(LOCAL_NAME, JSON.stringify(state))
+  } catch (e) {}
+  return state
+}
 
-  useEffect(() => {
-    window.localStorage.setItem(LOCAL_NAME, state)
-  })
+function NewsProvider (props) {
+  const [state, updateState] = useReducer(reducer, initialState)
+  const dispatch = (action) => {
+    return saveToStore(updateState)(action)
+  }
+  const value = { state, dispatch }
 
   return (
     <News.Provider value={value}>{props.children}</News.Provider>

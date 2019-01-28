@@ -66,7 +66,9 @@ export const reducerFactory = (initialState) => (state = initialState, action) =
     case 'loading':
       return { ...state, loading: action.payload }
     case 'open':
-      state.news[action.payload].read = true
+      if (state.news[action.payload]) {
+        state.news[action.payload].read = true
+      }
       return { ...state, selected: action.payload }
     case 'close':
       return { ...state, selected: null }

@@ -4,10 +4,8 @@ import { useNews } from '../contexts/news.context'
 import styled from 'styled-components'
 
 const ActionRow = styled(Row)`
-  top: 0;
-  left: 0;
-  width: 100%;
   box-shadow: 0 0 4px #dddddd;
+  flex: 0 0 auto;
 `
 
 export default function Actions () {
@@ -15,7 +13,7 @@ export default function Actions () {
   const dismiss = () => dispatch({ type: 'dismiss-all' })
   return (
     <ActionRow direction='row'>
-      <Button height='5vh' onClick={dismiss}>
+      <Button height='40px' onClick={dismiss}>
         Dismiss all
       </Button>
     </ActionRow>
