@@ -116,7 +116,7 @@ export const NewsRow = styled(Row)`
 export function DayFromNow (props) {
   return (
     <FromNow small={props.small}>
-      {dayjs(Number(props.date) * 1000).fromNow()} ago
+      {dayjs(Number(props.date) * 1000).fromNow()}
     </FromNow>
   )
 }
