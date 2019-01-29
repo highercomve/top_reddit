@@ -13,7 +13,7 @@ export default function NewsItem (props) {
         <Title>{props.data.title}</Title>
         <Row direction='column'>
           <SAuthor name={props.data.author} />
-          <DayFromNow date={props.data.created} />
+          <DayFromNow date={props.data.created_utc} />
           <CommentsNumber count={props.data.num_comments} />
         </Row>
         <Row direction='row'>

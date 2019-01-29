@@ -25,6 +25,10 @@ const ScrolledContent = styled(Row)`
   max-height: 100vh;
 `
 
+const PostedInfo = styled(Row)`
+  color: rgb(150, 150, 150);
+`
+
 function ShowContent (props) {
   switch (props.type) {
     case 'html':
@@ -70,14 +74,14 @@ export default function ArticleDetail () {
       <Close onClick={close}>
         &#10006;
       </Close>
+      <PostedInfo direction='row' wrap='wrap' justify='flex-start'>
+        <SAuthor small name={article.data.author} />
+        <DayFromNow small date={article.data.created_utc} />
+        <CommentsNumber small count={article.data.num_comments} />
+      </PostedInfo>
       <Title>
         <a href={`https://www.reddit.com${article.data.permalink}`} target='_blank'>{article.data.title}</a>
       </Title>
-      <Row direction='row' wrap='wrap' justify='space-between'>
-        <SAuthor name={article.data.author} />
-        <DayFromNow date={article.data.created} />
-        <CommentsNumber count={article.data.num_comments} />
-      </Row>
       <ShowContent type={contentType} content={content} isVideo={article.data.is_video} />
     </ScrolledContent>
   )

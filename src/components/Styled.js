@@ -69,7 +69,8 @@ export const Title = styled.h1`
 `
 
 export const SAuthor = styled(Author)`
-  flex: 1 0 auto;
+  flex: ${props => props.small ? '0 1 auto' : '1 0 auto'};
+  padding: ${props => props.small ? '0 1em 0 0' : '0'};
   font-size: 0.9em;
   & .author-label {
     text-transform: uppercase;
@@ -79,13 +80,15 @@ export const SAuthor = styled(Author)`
 `
 
 export const FromNow = styled.span`
-  flex: 1 0 auto;
+  flex: ${props => props.small ? '0 1 auto' : '1 0 auto;'};
+  padding: ${props => props.small ? '0 1em 0 0' : '0'};
   text-align: left;
   font-size: 0.9em;
 `
 
 export const CommentsN = styled.span`
-  flex: 1 0 auto;
+  flex: ${props => props.small ? '0 1 auto' : '1 0 auto;'};
+  padding: ${props => props.small ? '0 1em 0 0' : '0'};
   text-align: left;
   font-size: 0.9em;
 `
@@ -112,22 +115,22 @@ export const NewsRow = styled(Row)`
 
 export function DayFromNow (props) {
   return (
-    <FromNow>
-      {dayjs().toNow(props.date)} ago
+    <FromNow small={props.small}>
+      {dayjs(Number(props.date) * 1000).fromNow()} ago
     </FromNow>
   )
 }
 
 export function CommentsNumber (props) {
   return (
-    <CommentsN>{props.count} comments</CommentsN>
+    <CommentsN small={props.small}>{props.count} comments</CommentsN>
   )
 }
 
 export function Author (props) {
   return (
     <span className={`${props.className} author`}>
-      <span className='author-label'>author:</span> {props.name}
+      <span className='author-label'>Posted by</span> {props.name}
     </span>
   )
 }
